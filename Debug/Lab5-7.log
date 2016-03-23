@@ -1,0 +1,5 @@
+﻿  Repository.cpp
+  Controller.cpp
+  Generating Code...
+c:\oop\lab5-7\lab5-7\repository.cpp(73): warning C4715: 'Repository::deleteDog': not all control paths return a value
+  Lab5-7.vcxproj -> C:\OOP\Lab5-7\Debug\Lab5-7.exe
