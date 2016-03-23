@@ -236,6 +236,69 @@ void UI::run()
 					}
 					break;
 				}
+
+				case 3:
+				{
+
+					this->ctrl.addAllDogs();
+					this->ctrl.cleanBreed();
+					std::string breedreq;
+					cout << endl << "Enter the breed you want ";
+					cin >> breedreq;
+					int age;
+					cout << endl << "Enter the age ";
+					cin >> age;
+					this->ctrl.addDogsByBreedAndAge(breedreq, age);
+					if (this->ctrl.getBreedList().isEmpty())
+					{
+						cout << "The database is empty. No dogs of the given breed and age available for adoption."; continue;
+					}
+					this->ctrl.startBreedList();
+					Dog ddd = this->ctrl.getBreedList().getCurrentDog();
+					cout << "The current dog -  Breed: " << ddd.getBreed() << " NAME: " << ddd.getName() << " AGE: " << ddd.getAge() << endl;
+
+					while (true)
+					{
+
+						UI::printBreedMenu();
+						int commandAll{ 0 };
+						cout << "Input the command: ";
+						cin >> commandAll;
+						cin.ignore();
+						if (commandAll == 0)
+							break;
+						switch (commandAll)
+						{
+						case 1:
+						{
+							if (this->ctrl.getBreedList().isEmpty())
+							{
+								cout << "The database is empty. No dogs available for adoption."; continue;
+							}
+							this->ctrl.nextBreedList();
+							Dog dd = this->ctrl.getBreedList().getCurrentDog();
+
+							cout << "The current dog -  Breed: " << dd.getBreed() << " NAME: " << dd.getName() << " AGE: " << dd.getAge() << endl;
+							break;
+						}
+
+						case 2:
+						{
+							if (this->ctrl.getBreedList().isEmpty())
+							{
+								cout << "The database is empty. No dogs available for adoption."; continue;
+							}
+
+							Dog d2 = this->ctrl.getBreedList().getCurrentDog();
+							this->ctrl.addDogToAdoption(d2);
+
+							cout << "You just adopted this dog -  Breed: " << d2.getBreed() << " NAME: " << d2.getName() << " AGE: " << d2.getAge() << endl;
+							break;
+						}
+						}
+					}
+					break;
+				}
 				case 2:
 				{
 					if (this->ctrl.getDogList().isEmpty())
@@ -264,72 +327,12 @@ void UI::run()
 								cout << "No dogs adopted."; continue;
 							}
 							this->ctrl.nextAdoptionList();
-							Dog d = this->ctrl.getAdoptionList().getCurrentDog();
+							Dog d4 = this->ctrl.getAdoptionList().getCurrentDog();
 
-							cout << "The current adopted dog -  Breed: " << d.getBreed() << " NAME: " << d.getName() << " AGE: " << d.getAge() << endl;
+							cout << "The current adopted dog -  Breed: " << d4.getBreed() << " NAME: " << d4.getName() << " AGE: " << d4.getAge() << endl;
 							break;
 						}
 
-						}
-					}
-					break;
-				}
-				case 3:
-				{
-					this->ctrl.cleanBreed();
-					std::string breedreq;
-					cout << endl << "Enter the breed you want ";
-					cin >> breedreq;
-					int age;
-					cout << endl << "Enter the age ";
-					cin >> age;
-					this->ctrl.addDogsByBreedAndAge(breedreq, age);
-					if (this->ctrl.getBreedList().isEmpty())
-					{
-						cout << "The database is empty. No dogs of the given breed and age available for adoption."; continue;
-					}
-					this->ctrl.startBreedList();
-					Dog d = this->ctrl.getBreedList().getCurrentDog();
-					cout << "The current dog -  Breed: " << d.getBreed() << " NAME: " << d.getName() << " AGE: " << d.getAge() << endl;
-
-					while (true)
-					{
-
-						UI::printBreedMenu();
-						int commandAll{ 0 };
-						cout << "Input the command: ";
-						cin >> commandAll;
-						cin.ignore();
-						if (commandAll == 0)
-							break;
-						switch (commandAll)
-						{
-						case 1:
-						{
-							if (this->ctrl.getBreedList().isEmpty())
-							{
-								cout << "The database is empty. No dogs available for adoption."; continue;
-							}
-							this->ctrl.nextBreedList();
-							Dog d = this->ctrl.getBreedList().getCurrentDog();
-
-							cout << "The current dog -  Breed: " << d.getBreed() << " NAME: " << d.getName() << " AGE: " << d.getAge() << endl;
-							break;
-						}
-
-						case 2:
-						{
-							if (this->ctrl.getBreedList().isEmpty())
-							{
-								cout << "The database is empty. No dogs available for adoption."; continue;
-							}
-
-							Dog d1 = this->ctrl.getBreedList().getCurrentDog();
-							this->ctrl.addDogToAdoption(d1);
-
-							cout << "You just adopted this dog -  Breed: " << d1.getBreed() << " NAME: " << d1.getName() << " AGE: " << d1.getAge() << endl;
-							break;
-						}
 						}
 					}
 					break;
