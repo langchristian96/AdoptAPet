@@ -1,40 +1,22 @@
-========================================================================
-    CONSOLE APPLICATION : Lab5-7 Project Overview
-========================================================================
-
-AppWizard has created this Lab5-7 application for you.
-
-This file contains a summary of what you will find in each of the files that
-make up your Lab5-7 application.
-
-
-Lab5-7.vcxproj
-    This is the main project file for VC++ projects generated using an Application Wizard.
-    It contains information about the version of Visual C++ that generated the file, and
-    information about the platforms, configurations, and project features selected with the
-    Application Wizard.
-
-Lab5-7.vcxproj.filters
-    This is the filters file for VC++ projects generated using an Application Wizard. 
-    It contains information about the association between the files in your project 
-    and the filters. This association is used in the IDE to show grouping of files with
-    similar extensions under a specific node (for e.g. ".cpp" files are associated with the
-    "Source Files" filter).
-
-Lab5-7.cpp
-    This is the main application source file.
-
-/////////////////////////////////////////////////////////////////////////////
-Other standard files:
-
-StdAfx.h, StdAfx.cpp
-    These files are used to build a precompiled header (PCH) file
-    named Lab5-7.pch and a precompiled types file named StdAfx.obj.
-
-/////////////////////////////////////////////////////////////////////////////
-Other notes:
-
-AppWizard uses "TODO:" comments to indicate parts of the source code you
-should add to or customize.
-
-/////////////////////////////////////////////////////////////////////////////
+ - KEEP CALM AND ADOPT A PET -
+The “Keep calm and adopt a pet” shelter needs a software application to help them find adoptive
+parents for the dogs they are taking care of. The application can be used in two modes: administrator
+and user. When the application is started, it will offer the option to choose the mode.
+Administrator mode: The application will have a database, which holds all the dogs in the shelter at a
+given moment. The shelter employees must be able to update the database, meaning: add a new dog,
+delete a dog (when the dog is adopted) and update the information of a dog. Each Dog has a breed, a
+name, an age and a photograph. The photograph is memorised as a link towards an online resource (the
+photograph on the presentation site of the centre). The administrators will also have the option to see
+all the dogs in the shelter.
+User mode: A user can access the application and choose one or more dogs to adopt. The application
+will allow the user to:
+a. See the dogs in the database, one by one. When the user chooses this option, the data of the
+first dog (breed, name, age) is displayed, along with its photograph.
+b. Choose to adopt the dog, in which case the dog is added to the user’s adoption list.
+c. Choose not to adopt the dog and to continue to the next. In this case, the information
+corresponding to the next dog is shown and the user is again offered the possibility to adopt it.
+This can continue as long as the user wants, as when arriving to the end of the list, if the user
+chooses next, the application will again show the first dog.
+d. See all the dogs of a given breed, having an age less than a given number. If the breed is empty,
+then all the dogs will be considered. The same options (a, b and c) apply in this case.
+e. See the adoption list.
